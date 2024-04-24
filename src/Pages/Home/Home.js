@@ -4,16 +4,35 @@ import svg2 from '../../images/svg-image-11.png';
 import svg3 from '../../images/svg-image-12.png';
 import svg4 from '../../images/svg-image-13.png';
 import Logo from '../../images/Logo.png';
-import plus from '../../images/plus.svg';
-import React, { useState } from 'react';
+import { ValidationLogin, ValidationSignUp } from '../../utils/validate';
+import React, { useRef, useState } from 'react';
 import './Home.css';
 
 const Home = () => {
 
     const [UserLoggedIN, setUserLoggedIN] = useState(false);
+    const [LoginErrorMessage, setLoginErrorMessage] = useState(null);
+    const [SignUpErrorMessage, setSignUpErrorMessage] = useState(null);
+
+    const Loginemail = useRef(null);
+    const Loginpassword = useRef(null);
+
+    const SignUpEmail = useRef(null);
+    const SignUpPassword = useRef(null);
+    const userName = useRef(null);
 
     const handleClick = () => {
         setUserLoggedIN(!UserLoggedIN);
+    }
+
+    const handleLogin = () => {
+        const message = ValidationLogin(Loginemail.current.value, Loginpassword.current.value);
+        setLoginErrorMessage(message);
+    }
+
+    const handleSignUP = () => {
+        const message = ValidationSignUp(userName.current.value ,SignUpEmail.current.value, SignUpPassword.current.value);
+        setSignUpErrorMessage(message);
     }
 
     return (
@@ -49,9 +68,10 @@ const Home = () => {
                                 <div className='signIN_box'>
                                     <h1>Sign IN</h1>
                                     <div className="form">
-                                        <input className='inputBox' type="text" required placeholder="Email address" />
-                                        <input className='inputBox' type="text" required placeholder="Password" />
-                                        <button>
+                                        <input ref={Loginemail} className='inputBox' type="text" required placeholder="Email address" />
+                                        <input ref={Loginpassword} className='inputBox' type="password" required placeholder="Password" />
+                                        <p className='error_message'>{LoginErrorMessage}</p>
+                                        <button onClick={handleLogin}>
                                             Sign IN
                                         </button>
                                     </div>
@@ -67,8 +87,11 @@ const Home = () => {
                                 <h1>SIGN UP</h1>
 
                                 <div className="form">
-                                    <input type="text" required="" placeholder="Email address" />
-                                    <button>
+                                    <input className='inputBox' ref={SignUpEmail} type="text" required="" placeholder="Email address" />
+                                    <input className='inputBox' ref={userName} type="text" required="" placeholder="Username" />
+                                    <input className='inputBox' ref={SignUpPassword} type='password' required="" placeholder="Password" />
+                                    <p className='error_message'>{SignUpErrorMessage}</p>
+                                    <button onClick={handleSignUP}>
                                         Get Started <span>&gt;</span>
                                     </button>
                                 </div>

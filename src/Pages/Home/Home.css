@@ -155,16 +155,14 @@ nav {
     background-color: #000000be;
     border-radius: 8px;
     padding: 10px 20px;
+    margin: 20px auto;
 } 
 
 .signUP_box input {
     margin-bottom: 15px;
 }
 
-
-
 .signIN_box {
-    width: 80%;
     margin: auto;
     border-radius: 6px;
     padding: 20px;
@@ -172,16 +170,16 @@ nav {
 }
 
 .signIN_box > h1 {
-    font-size: 26px;
+    font-size: 28px;
     text-transform: uppercase;
 }
 
-.signIN_box .inputBox {
+.signIN_box .inputBox, .signUP_box .inputBox {
     margin-bottom: 15px;
     width: 100%;
 }
 
-.signIN_box button {
+.signIN_box button, .signUP_box button {
     width: 100%;
     text-transform: uppercase;
 }
@@ -193,6 +191,7 @@ nav {
 
 .signUP_box > p {
     font-size: 15px;
+    text-align: left;
 }
 
 .signIN_box > p > span, .signUP_box > p > span {
@@ -201,9 +200,14 @@ nav {
     text-decoration: underline;
 }
 
+.error_message {
+    margin-bottom: 10px;
+    color: red;
+}
+
 /* Get Started */
 .get-started {
-    width: 600px;
+    width: 450px;
     margin: 20px auto;
     text-align: center;
     color: #fff;
@@ -434,51 +438,6 @@ input:focus {
 }
 
 
-/* Register */
-.register {
-    width: 80%;
-    margin-block: 50px;
-}
-
-.register>p {
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-.form2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.form2>input {
-    padding: 1rem 0.75rem;
-    border-radius: 3px;
-    border: 1.5px solid grey;
-    width: 75%;
-    background-color: rgba(53, 53, 53, 0.361);
-    color: #fff;
-    margin-left: 2px;
-}
-
-.form2>input::placeholder {
-    font-size: 15px;
-    color: #fff;
-}
-
-.form2>button {
-    padding: 0.75rem 1.75rem;
-    color: #fff;
-    background-color: red;
-    border: none;
-    border-radius: 4px;
-    font-size: 22px;
-    font-weight: 500;
-    width: 35%;
-}
-
-
 /* Footer */
 footer {
     width: 80%;
@@ -648,6 +607,10 @@ a {
         font-size: 10px;
     }
 
+    .error_message {
+        font-size: 12px;
+    }
+
     .get-started {
         width: 400px;
     }
@@ -710,6 +673,10 @@ a {
 
     .signIN_box {
         width: 100%;
+    }
+
+    .error_message {
+        font-size: 10px;
     }
 
     .get-started {
