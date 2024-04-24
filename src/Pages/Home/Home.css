@@ -1,0 +1,903 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Netflix Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+    font-display: optional;
+    font-family: Netflix Sans;
+    font-weight: 100;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2) format("woff2"),
+        url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff) format("woff")
+}
+
+@font-face {
+    font-display: optional;
+    font-family: Netflix Sans;
+    font-weight: 300;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff2) format("woff2"),
+        url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff) format("woff")
+}
+
+@font-face {
+    font-display: optional;
+    font-family: Netflix Sans;
+    font-weight: 400;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2) format("woff2"),
+        url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff) format("woff")
+}
+
+@font-face {
+    font-display: optional;
+    font-family: Netflix Sans;
+    font-weight: 500;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff2) format("woff2"),
+        url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff) format("woff")
+}
+
+@font-face {
+    font-display: optional;
+    font-family: Netflix Sans;
+    font-weight: 700;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2) format("woff2"),
+        url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff) format("woff")
+}
+
+@font-face {
+    font-display: optional;
+    font-family: Netflix Sans;
+    font-weight: 900;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Blk.woff2) format("woff2"),
+        url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Blk.woff) format("woff")
+}
+
+.max-w {
+    max-width: 1256px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+button {
+    cursor: pointer;
+}
+
+.bg-vignity::before {
+    content: '';
+    background-image: linear-gradient(7deg, rgba(0, 0, 0, 0.8500) 10.00%, rgba(0, 0, 0, 0.8465) 17.25%, rgba(0, 0, 0, 0.8361) 24.50%, rgba(0, 0, 0, 0.8187) 31.75%, rgba(0, 0, 0, 0.7944) 39.00%, rgba(0, 0, 0, 0.7632) 46.25%, rgba(0, 0, 0, 0.7250) 53.50%, rgba(0, 0, 0, 0.6868) 60.75%, rgba(0, 0, 0, 0.6556) 68.00%, rgba(0, 0, 0, 0.6312) 75.25%, rgba(0, 0, 0, 0.6139) 82.50%, rgba(0, 0, 0, 0.6035) 89.75%, rgba(0, 0, 0, 0.6000) 97.00%);
+    width: 100%;
+    height: 120%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+
+header::before {
+    content: '';
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8000) 0.000%, rgba(0, 0, 0, 0.7889) 8.333%, rgba(0, 0, 0, 0.7556) 16.67%, rgba(0, 0, 0, 0.7000) 25.00%, rgba(0, 0, 0, 0.6222) 33.33%, rgba(0, 0, 0, 0.5222) 41.67%, rgba(0, 0, 0, 0.4000) 50.00%, rgba(0, 0, 0, 0.2778) 58.33%, rgba(0, 0, 0, 0.1778) 66.67%, rgba(0, 0, 0, 0.1000) 75.00%, rgba(0, 0, 0, 0.04444) 83.33%, rgba(0, 0, 0, 0.01111) 91.67%, rgba(0, 0, 0, 0.000) 100.0%);
+    position: absolute;
+    width: 100vw;
+    height: 300px;
+    top: -50px;
+    left: 0;
+    z-index: -1;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 28px auto;
+}
+
+.logo>img {
+    width: 144px;
+}
+
+.lang-signin {
+    display: flex;
+    gap: 30px;
+}
+
+.dropdown>select {
+    padding: 5px 10px 5px 30px;
+    border: 2px solid rgb(106, 106, 106);
+    border-radius: 6px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+}
+
+.dropdown>select>option {
+    color: #000;
+}
+
+
+.dropdown>img {
+    position: relative;
+    top: 5%;
+    left: 30px;
+}
+
+.lang-signin>button {
+    padding: 4px 16px;
+    background-color: rgb(229, 9, 20);
+    color: white;
+    border: 1px solid rgb(229, 9, 20);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+
+.get-started::before {
+    content: '';
+    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') no-repeat center center/cover;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-position: top;
+    width: 100%;
+    height: 140vh;
+    z-index: -2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+}
+
+.signUP_box {
+    background-color: #000000be;
+    border-radius: 8px;
+    padding: 10px 20px;
+} 
+
+.signUP_box input {
+    margin-bottom: 15px;
+}
+
+
+
+.signIN_box {
+    width: 80%;
+    margin: auto;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #000000be;
+}
+
+.signIN_box > h1 {
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.signIN_box .inputBox {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.signIN_box button {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.signIN_box > p {
+    font-size: 15px;
+    text-align: left;
+}
+
+.signUP_box > p {
+    font-size: 15px;
+}
+
+.signIN_box > p > span, .signUP_box > p > span {
+    color: #D61330;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Get Started */
+.get-started {
+    width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    color: #fff;
+    margin-top: 150px;
+}
+
+.get-started>h1 {
+    font-size: 55px;
+    font-weight: 900;
+}
+
+.get-started>h4 {
+    font-size: 20px;
+    padding-block: 30px;
+}
+
+.get-started>p {
+    font-weight: 500;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-block: 20px;
+    flex-wrap: wrap;
+}
+
+.form>input {
+    padding: 1rem 0.75rem;
+    border-radius: 3px;
+    border: 1.5px solid grey;
+    width: 400px;
+    outline: #000;
+    background-color: rgba(53, 53, 53, 0.361);
+    color: #fff;
+}
+
+.form>input::placeholder {
+    font-size: 15px;
+    color: #fff;
+}
+
+.form>button {
+    padding: 0.75rem 1.75rem;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.form>button:hover, .form2>button:hover, button:hover {
+    background-color: rgb(160, 18, 18);
+}
+
+input:focus {
+    outline: solid white;
+}
+
+.curve-line {
+    width: 100vw;
+    overflow: hidden;
+}
+
+.box {
+    position: relative;
+    left: -3vw;
+    width: 106vw;
+    height: 50px;
+    border: solid 5px #D61330;
+    border-color: #D61330 transparent transparent transparent;
+    border-radius: 100%/100px 100px 0 0;
+    margin-top: 100px;
+    background-color: #000000;
+}
+
+
+/* Black Container */
+.black-container {
+    width: 100%;
+    height: auto;
+    background-color: #000;
+    padding-block: 20px;
+    margin-top: -20px;
+}
+
+/* Memebership */
+.memebership {
+    width: 100%;
+    margin: 20px auto;
+    margin-top: 30px;
+    color: #fdfdfd;
+}
+
+.memebership>h2 {
+    margin-block: 10px;
+    margin-top: 50px;
+    font-weight: 600;
+}
+
+.game-box {
+    border: 2px solid black;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #fdfdfd;
+    background: linear-gradient(97deg, #45172B 1.27%, #120C1F 75.23%);
+}
+
+.content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px;
+}
+
+.content>h1 {
+    font-weight: 900;
+}
+
+.game-image {
+    width: 50%;
+    overflow: hidden;
+    background: radial-gradient(94.35% 90.74% at 100% 100%, rgba(229, 9, 20, 0.50) 0%, rgba(23, 43, 71, 0.00) 100%);
+}
+
+.game-image>img {
+    transform: scale(1.8) rotate(-2deg);
+    position: relative;
+    left: 210px;
+    top: 41px;
+}
+
+/* Reasons */
+.reasons {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.reasons>h2 {
+    color: #fff;
+}
+
+.reason-box {
+    width: 100%;
+    margin-block: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.rbox {
+    padding: 20px;
+    padding-top: 30px;
+    width: 300px;
+    height: 270px;
+    color: #fff;
+    background: linear-gradient(149deg, #192247 0%, #210e17 99.08%);
+    border-radius: 12px;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.r-img {
+    text-align: right;
+    position: relative;
+    width: 100%;
+    height: 50%;
+}
+
+.r-img>img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/* Plan Container */
+.plans-container {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.plans-container>h2 {
+    color: #fff;
+}
+
+.plan-box {
+    width: 100%;
+    margin-block: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.pack {
+    padding: 20px;
+    width: 300px;
+    height: 270px;
+    color: #fff;
+    background: linear-gradient(180deg, #6c1f41 0%, #210d0e 100%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all ease 0.5s;
+    cursor: pointer;
+}
+
+.pack>p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pack>.context {
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+.pack:hover {
+    transform: scale(1.02);
+    background: linear-gradient(180deg, #922556 0%, #210d0e 99.51%);
+}
+
+
+/* Register */
+.register {
+    width: 80%;
+    margin-block: 50px;
+}
+
+.register>p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.form2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form2>input {
+    padding: 1rem 0.75rem;
+    border-radius: 3px;
+    border: 1.5px solid grey;
+    width: 75%;
+    background-color: rgba(53, 53, 53, 0.361);
+    color: #fff;
+    margin-left: 2px;
+}
+
+.form2>input::placeholder {
+    font-size: 15px;
+    color: #fff;
+}
+
+.form2>button {
+    padding: 0.75rem 1.75rem;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    font-size: 22px;
+    font-weight: 500;
+    width: 35%;
+}
+
+
+/* Footer */
+footer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    color: #939090;
+}
+
+.main-footer-menu {
+    margin-block: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.main-footer-menu p {
+    margin-bottom: 15px;
+
+}
+
+.main-footer-menu p:hover {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+footer>p:last-child {
+    margin-top: 30px;
+}
+
+.d2 {
+    position: relative;
+}
+
+.d2>img {
+    position: absolute;
+    top: 25%;
+    left: 8px;
+}
+
+.d2 > select {
+    margin-left: 2px ;
+}
+
+select:focus {
+    outline: solid #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 1179px) {
+    .max-w {
+        max-width: 980px;
+
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .max-w {
+        max-width: 740px;
+    }
+
+    .get-started {
+        width: 500px;
+    }
+
+    .get-started>h1 {
+        font-size: 45px;
+    }
+
+    .get-started>h4 {
+        font-size: 18px;
+    }
+
+    .get-started>p {
+        font-size: 14px;
+    }
+
+    .form>input {
+        width: 60%;
+    }
+
+
+
+    .plan-box,
+    .reason-box {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .questions-box {
+        align-items: center;
+    }
+
+    .plans-container>h2,
+    .memebership>h2,
+    .reasons>h2,
+    .faq-container>h2 {
+        text-align: center;
+    }
+
+    .game-image>img {
+        left: 90px;
+        top: 35px;
+    }
+
+    .content>h1 {
+        font-size: 20px;
+    }
+
+    .content>p {
+        font-size: 14px;
+    }
+
+    .register {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form2 {
+        flex-direction: column;
+    }
+
+    footer {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 810px) {
+    .max-w {
+        max-width: 640px;
+
+    }
+
+    .question {
+        height: 55px;
+    }
+
+    
+}
+
+
+
+@media only screen and (max-width: 810px) {
+    .max-w {
+        max-width: 480px;
+    }
+
+    .signUP_box h1 {
+        font-size: 21px;
+    }
+
+    .signIN_box > p {
+        font-size: 10px;
+        text-align: left;
+    }
+    
+    .signUP_box > p {
+        font-size: 10px;
+    }
+
+    .get-started {
+        width: 400px;
+    }
+
+    .get-started>h1 {
+        font-size: 35px;
+    }
+
+    .get-started>h4 {
+        font-size: 15px;
+    }
+
+    .get-started>p {
+        font-size: 12px;
+    }
+
+    .form>input {
+        width: 90%;
+    }
+
+    .pack {
+        width: 230px;
+        height: 250px;
+    }
+
+    .game-box {
+        flex-direction: column-reverse;
+    }
+
+    .game-image,
+    .content {
+        width: 100%;
+    }
+
+    .game-image>img {
+        transform: scale(2.4) rotate(-2deg);
+    }
+
+    .rbox {
+        width: 230px;
+        font-size: 11px;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 525px) {
+    .max-w {
+        max-width: 350px;
+    }
+
+    .logo>img {
+        width: 115px;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+    .signIN_box {
+        width: 100%;
+    }
+
+    .get-started {
+        width: 300px;
+    }
+
+    .get-started>h1 {
+        font-size: 28px;
+    }
+
+    .form>button {
+        font-size: 15px;
+    }
+
+    .box {
+        left: -6vw;
+        width: 112vw;
+    }
+
+    .pack {
+        width: 100%;
+    }
+
+    .plans-container>h2,
+    .memebership>h2,
+    .reasons>h2,
+    .faq-container>h2 {
+        font-size: 20px;
+    }
+
+    .game-image>img {
+        transform: scale(1.5) translateX(-35px) translateY(-20px);
+    }
+
+    .content {
+        padding: 40px 30px;
+    }
+
+    .rbox {
+        width: 100%;
+    }
+
+    .question {
+        font-size: 16px;
+    }
+
+    .question>img {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .main-footer-menu {
+        padding-inline: 0px;
+        gap: 0px;
+    }
+
+    .main-footer-menu p {
+        font-size: 14px;
+      }
+
+    .main-footer-menu>div {
+        width: 300px;
+    }
+
+    .d2 {
+        display: block;
+    }
+
+    footer {
+        align-items: start;
+    }
+
+}
+
+@media only screen and (max-width: 380px) {
+    .max-w {
+        max-width: 270px;
+    }
+
+    .nav {
+        padding-inline: 10px;
+    }
+
+    .logo>img {
+        width: 90px;
+    }
+
+    .lang-signin>button {
+        font-size: 13px;
+    }
+
+
+    .get-started {
+        width: 260px;
+    }
+
+    .get-started>h1 {
+        font-size: 19px;
+    }
+
+    .get-started>h4 {
+        font-size: 12px;
+        padding-block: 20px;
+    }
+
+    .get-started>p {
+        font-size: 10px;
+    }
+
+    .form>button {
+        font-size: 10px;
+    }
+
+    .form>input::placeholder {
+        font-size: 12px;
+    }
+
+    .box {
+        left: -9vw;
+        width: 118vw;
+    }
+
+    .plans-container>h2,
+    .memebership>h2,
+    .reasons>h2,
+    .faq-container>h2 {
+        font-size: 18px;
+    }
+
+    .pack {
+        height: 230px;
+    }
+
+    .pack>h2 {
+        font-size: 20px;
+    }
+
+    .pack>p {
+        font-size: 16px;
+    }
+
+
+    .pack:hover {
+        transform: scale(0.97);
+    }
+
+    .question {
+        font-size: 13px;
+    }
+
+    .question>img {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .rbox {
+        font-size: 10px;
+        height: 230px;
+    }
+
+    .game-image>img {
+        transform: scale(1.5) translateX(-85px) translateY(-20px);
+    }
+
+    .register>p {
+        font-size: 13px;
+    }
+
+    .form2>button {
+        font-size: 15px;
+    }
+
+    .main-footer-menu {
+        gap: 3px;
+        padding: 0px;
+    }
+
+    .main-footer-menu>div {
+        width: 150px;
+    }
+
+    .main-footer-menu p {
+        font-size: 12px;
+    }
+
+    footer {
+        align-items: start;
+    }
+}
