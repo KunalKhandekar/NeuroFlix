@@ -1,40 +1,101 @@
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { ValidationLogin, ValidationSignUp } from '../../utils/validate';
+import useAuthentication from "../../utils/useAuthentication";
+import { addUser } from '../../utils/Store/userSlice';
 import LangIcon from '../../images/lang-icon.svg'
 import svg1 from '../../images/svg-image-10.png';
 import svg2 from '../../images/svg-image-11.png';
 import svg3 from '../../images/svg-image-12.png';
 import svg4 from '../../images/svg-image-13.png';
-import Logo from '../../images/Logo.png';
-import { ValidationLogin, ValidationSignUp } from '../../utils/validate';
 import React, { useRef, useState } from 'react';
+import avatar from '../../images/avatar.png';
+import { auth } from '../../utils/Firebase';
+import { useDispatch } from 'react-redux';
+import Logo from '../../images/Logo.png';
 import './Home.css';
 
 const Home = () => {
 
+    // Authentication
+    useAuthentication();
+
+    // useState Constant
+    const dispatch = useDispatch();
     const [UserLoggedIN, setUserLoggedIN] = useState(false);
     const [LoginErrorMessage, setLoginErrorMessage] = useState(null);
     const [SignUpErrorMessage, setSignUpErrorMessage] = useState(null);
 
+    // Login Constants
     const Loginemail = useRef(null);
     const Loginpassword = useRef(null);
 
+    // Signup Constants
     const SignUpEmail = useRef(null);
     const SignUpPassword = useRef(null);
     const userName = useRef(null);
 
+    // Toggling SignIN && SignUP
     const handleClick = () => {
         setUserLoggedIN(!UserLoggedIN);
+        if (Loginemail.current) Loginemail.current.value = "";
+        if (Loginpassword.current) Loginpassword.current.value = "";
+        if (SignUpEmail.current) SignUpEmail.current.value = "";
+        if (userName.current) userName.current.value = "";
+        if (SignUpPassword.current) SignUpPassword.current.value = "";
     }
 
+    // Handling Login
     const handleLogin = () => {
         const message = ValidationLogin(Loginemail.current.value, Loginpassword.current.value);
         setLoginErrorMessage(message);
+
+        if (message) return;
+
+        signInWithEmailAndPassword(auth, Loginemail.current.value, Loginpassword.current.value)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                const { uid, displayName, email, photoURL } = user;
+                dispatch(addUser({ uid, displayName, email, photoURL }));
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                if (errorCode === 'auth/invalid-credential') {
+                    setLoginErrorMessage('User Not Found !!');
+                }
+
+
+            });
     }
 
+    // Handling Sign UP
     const handleSignUP = () => {
-        const message = ValidationSignUp(userName.current.value ,SignUpEmail.current.value, SignUpPassword.current.value);
+        const message = ValidationSignUp(userName.current.value, SignUpEmail.current.value, SignUpPassword.current.value);
         setSignUpErrorMessage(message);
+
+        if (message) return;
+
+        createUserWithEmailAndPassword(auth, SignUpEmail.current.value, SignUpPassword.current.value)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                updateProfile(user, {
+                    displayName: userName.current.value, photoURL: avatar
+                }).then(() => {
+                    // Profile updated!
+                    const { uid, displayName, email, photoURL } = auth.currentUser;
+                    dispatch(addUser({ uid, displayName, email, photoURL }));
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setSignUpErrorMessage(errorCode);
+            });
     }
 
+    // Rendering the Component
     return (
         <>
 
@@ -45,8 +106,8 @@ const Home = () => {
                             <div className="logo">
                                 <img src={Logo} alt="Netflix" />
                             </div>
-                            <div className="lang-signin">
-                                <div className="dropdown">
+                            <div className="lang-signin flex items-center">
+                                <div className="dropdown flex items-center">
                                     <img src={LangIcon} alt="language" />
                                     <select name="language">
                                         <option value="English">English</option>
@@ -68,7 +129,7 @@ const Home = () => {
                                 <div className='signIN_box'>
                                     <h1>Sign IN</h1>
                                     <div className="form">
-                                        <input ref={Loginemail} className='inputBox' type="text" required placeholder="Email address" />
+                                        <input ref={Loginemail} className='inputBox' type="email" required placeholder="Email address" />
                                         <input ref={Loginpassword} className='inputBox' type="password" required placeholder="Password" />
                                         <p className='error_message'>{LoginErrorMessage}</p>
                                         <button onClick={handleLogin}>
@@ -83,13 +144,12 @@ const Home = () => {
 
                             <><div className='signUP_box'>
 
-                                {/* <h1>Unlimited movies, TV shows and more</h1> */}
                                 <h1>SIGN UP</h1>
 
                                 <div className="form">
-                                    <input className='inputBox' ref={SignUpEmail} type="text" required="" placeholder="Email address" />
-                                    <input className='inputBox' ref={userName} type="text" required="" placeholder="Username" />
-                                    <input className='inputBox' ref={SignUpPassword} type='password' required="" placeholder="Password" />
+                                    <input className='inputBox' ref={SignUpEmail} type="email" required="true" placeholder="Email address" />
+                                    <input className='inputBox' ref={userName} type="text" required="true" placeholder="Username" />
+                                    <input className='inputBox' ref={SignUpPassword} type='password' required="true" placeholder="Password" />
                                     <p className='error_message'>{SignUpErrorMessage}</p>
                                     <button onClick={handleSignUP}>
                                         Get Started <span>&gt;</span>
