@@ -5,9 +5,17 @@ import { auth } from "../utils/Firebase";
 import { signOut } from "firebase/auth";
 import Logo from '../images/Logo.png';
 import GenreItem from "./GenreItem";
+import { Link } from "react-router-dom";
 import React from 'react';
+import { useParams } from "react-router-dom";
+import { FaPlayCircle } from 'react-icons/fa';
+import { FaFilm } from 'react-icons/fa';
+import { FaTrophy } from 'react-icons/fa';
+import { FaBinoculars } from 'react-icons/fa';
 
 const SideBar = ({ show, setShow }) => {
+
+    const { categoryNo } = useParams();
 
     // Hooks
     const genres = useGenreList();
@@ -31,6 +39,50 @@ const SideBar = ({ show, setShow }) => {
                 <RiMenuFoldFill className='text-2xl text-white cursor-pointer' onClick={() => setShow(!show)} />
                 <img className='w-36' src={Logo} alt="Logo" />
             </div>
+
+            {/* ------------------------------------------------------------------------------ */}
+
+            {/* Movie Categories */}
+            <div className="w-full m-auto relative border-b border-[#3a3a3a]">
+                <p className="text-lg pl-3 py-1.5 pt-2 font-semibol text-[#919191] sticky top-14 z-10 bg-[#141414]">Movie Categories</p>
+
+                {/* items */}
+                <div>
+                    <Link
+                        to='/browse/categories/1'
+                        onClick={() => setShow(!show)}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 1) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                    >
+                        <FaPlayCircle className="text-xl"/>
+                        <p className="text-white text-xl ml-4">Now Playing</p>
+                    </Link>
+                    <Link
+                        to='/browse/categories/2'
+                        onClick={() => setShow(!show)}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 2) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                    >
+                        <FaFilm className="text-xl"/>
+                        <p className="text-white text-xl ml-4">Popular</p>
+                    </Link>
+                    <Link
+                        to='/browse/categories/3'
+                        onClick={() => setShow(!show)}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 3) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                    >
+                        <FaTrophy className="text-xl"/>
+                        <p className="text-white text-xl ml-4">Top Rated</p>
+                    </Link>
+                    <Link
+                        to='/browse/categories/4'
+                        onClick={() => setShow(!show)}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 4) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                    >
+                        <FaBinoculars className="text-xl"/>
+                        <p className="text-white text-xl ml-4">Upcoming</p>
+                    </Link>
+                </div>
+            </div>
+
 
             {/* ------------------------------------------------------------------------------ */}
 
@@ -64,11 +116,11 @@ const SideBar = ({ show, setShow }) => {
             {/* ------------------------------------------------------------------------------ */}
 
             {/* Log Out Button */}
-            <div className="w-[80%] mx-auto my-3">
-            <button className=" flex items-center justify-center gap-2 bg-red-600 w-full py-1 text-lg text-white rounded-2xl capitalize" onClick={()=> handleSignOut()} >
-                Log Out
-                <IoLogOutOutline className="text-xl" />
-            </button>
+            <div className="w-[80%] mx-auto my-3 ssm:mb-12">
+                <button className=" flex items-center justify-center gap-2 bg-red-600 w-full py-1 text-lg text-white rounded-2xl capitalize" onClick={() => handleSignOut()} >
+                    Log Out
+                    <IoLogOutOutline className="text-xl" />
+                </button>
             </div>
 
         </div>

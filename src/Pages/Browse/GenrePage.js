@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-const MoviesGenrePage = () => {
+const GenrePage = () => {
 
     const { genre } = useParams();
 
@@ -12,4 +12,4 @@ const MoviesGenrePage = () => {
     )
 }
 
-export default MoviesGenrePage;
+export default GenrePage;

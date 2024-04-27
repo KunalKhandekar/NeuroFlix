@@ -1,4 +1,5 @@
-import MoviesGenrePage from './Pages/Browse/Movie/Genres/MoviesGenrePage'
+import GenrePage from './Pages/Browse/GenrePage';
+import CategoriesPage from './Pages/Browse/CategoriesPage';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import HeaderAndSideBar from './Components/HeaderAndSideBar';
 import Browse from './Pages/Browse/Browse';
@@ -29,7 +30,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/browse/:genre',
-        element: <MoviesGenrePage />,
+        element: <GenrePage />,
+      },
+      {
+        path: '/browse/categories/:categoryNo',
+        element: <CategoriesPage />,
       }
     ]
   }
