@@ -24,7 +24,7 @@ const SideBar = ({ show, setShow }) => {
 
 
     return (
-        <div className={`w-[250px] h-[100vh] overflow-auto border border-black absolute top-0 bg-[#141414] shadow transition-all duration-300 ${show ? 'left-0' : '-left-64'}`}>
+        <div className={`w-[250px] h-[100vh] overflow-auto border border-black absolute top-0 bg-[#141414] shadow transition-all duration-300 scroll-smooth ${show ? 'left-0' : '-left-64'}`}>
 
             {/* Menu && Logo */}
             <div className='flex items-center gap-4 px-5 py-4 border-b border-[#3a3a3a] sticky top-0 z-20 bg-[#141414]'>
