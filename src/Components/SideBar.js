@@ -51,7 +51,7 @@ const SideBar = ({ show, setShow }) => {
                     <Link
                         to='/browse/categories/1'
                         onClick={() => setShow(!show)}
-                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 1) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo == 1) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
                     >
                         <FaPlayCircle className="text-xl"/>
                         <p className="text-white text-xl ml-4">Now Playing</p>
@@ -59,7 +59,7 @@ const SideBar = ({ show, setShow }) => {
                     <Link
                         to='/browse/categories/2'
                         onClick={() => setShow(!show)}
-                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 2) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo == 2) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
                     >
                         <FaFilm className="text-xl"/>
                         <p className="text-white text-xl ml-4">Popular</p>
@@ -67,7 +67,7 @@ const SideBar = ({ show, setShow }) => {
                     <Link
                         to='/browse/categories/3'
                         onClick={() => setShow(!show)}
-                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 3) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo == 3) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
                     >
                         <FaTrophy className="text-xl"/>
                         <p className="text-white text-xl ml-4">Top Rated</p>
@@ -75,7 +75,7 @@ const SideBar = ({ show, setShow }) => {
                     <Link
                         to='/browse/categories/4'
                         onClick={() => setShow(!show)}
-                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo === 4) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
+                        className={`flex items-center text-white px-6 py-2 hover:bg-[#2f2f2f] cursor-pointer ${(categoryNo == 4) ? 'bg-[#2f2f2f] rounded-2xl' : ''}`}
                     >
                         <FaBinoculars className="text-xl"/>
                         <p className="text-white text-xl ml-4">Upcoming</p>
@@ -116,7 +116,7 @@ const SideBar = ({ show, setShow }) => {
             {/* ------------------------------------------------------------------------------ */}
 
             {/* Log Out Button */}
-            <div className="w-[80%] mx-auto my-3 ssm:mb-12">
+            <div className="w-[80%] mx-auto my-3 ssm:mb-14">
                 <button className=" flex items-center justify-center gap-2 bg-red-600 w-full py-1 text-lg text-white rounded-2xl capitalize" onClick={() => handleSignOut()} >
                     Log Out
                     <IoLogOutOutline className="text-xl" />
