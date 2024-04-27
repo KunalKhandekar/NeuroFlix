@@ -87,7 +87,7 @@ const IconRenderer = ({ iconIndex, use }) => {
 
   // Conditional Rendering for Movie and TV Show Icons
   const IconComponent = (use === 'movie_genre_') ? MovieiconComponents[iconIndex] : TVIconComponents[iconIndex] ;
-  return IconComponent ? <IconComponent className="text-xl" /> : null;
+  return IconComponent ? <IconComponent className="text-xl ssm:text-lg" /> : null;
 };
 
 export default IconRenderer;

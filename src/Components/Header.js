@@ -11,19 +11,19 @@ const Header = ({ show, setShow }) => {
 
     return (
 
-        <div className='max-w-[1600px] m-auto'>
+        <div className='max-w-[1600px] m-auto relative'>
 
-            <div className='flex items-center justify-between px-5 py-3 bg-black flex-wrap'>
+            <div className='flex items-center justify-between px-5 py-3 bg-black flex-wrap '> 
                 {/* Menu && Logo */}
                 <div className='flex items-center gap-4'>
-                    <RiMenuUnfoldFill className='text-2xl text-white cursor-pointer' onClick={() => setShow(!show)}/>
-                    <img className='w-36' src={Logo} alt="Logo" />
+                    <RiMenuUnfoldFill className='text-2xl text-white cursor-pointer ssm:text-xl xsm:text-lg' onClick={() => setShow(!show)}/>
+                    <img className='w-36 ssm:w-28 xsm:w-24' src={Logo} alt="Logo" />
                 </div>
 
                 {/* User Info */}
                 <div className='flex items-center gap-1.5'>
-                    <p className='text-sm font-medium uppercase text-white'>{userName}</p>
-                    <img className='w-10  rounded-xl' src={Avatar} alt="User_pic" />
+                    <p className='text-sm font-medium uppercase text-white ssm:text-xs'>{userName}</p>
+                    <img className='w-10  rounded-xl ssm:w-8' src={Avatar} alt="User_pic" />
                 </div>
             </div>
 
