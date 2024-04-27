@@ -2,19 +2,12 @@ import { useSelector } from 'react-redux';
 import { RiMenuUnfoldFill } from "react-icons/ri";
 import Logo from '../images/Logo.png'
 import React from 'react';
-import { signOut } from 'firebase/auth';
-import { auth } from '../utils/Firebase';
 
 const Header = ({ show, setShow }) => {
 
     // userSlice Constants
     const userName = useSelector((store) => store.user.displayName);
     const Avatar = useSelector((store) => store.user.photoURL);
-
-    // Handling Sign Out
-    const handleSignOut = () => {
-        signOut(auth);
-    };
 
     return (
 

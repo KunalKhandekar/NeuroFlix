@@ -1,7 +1,18 @@
-import './App.css';
-import { createBrowserRouter, RouterProvider, useRoutes } from 'react-router-dom';
-import Home from './Pages/Home/Home';
+import MoviesGenrePage from './Pages/Browse/Movie/Genres/MoviesGenrePage'
+import { createBrowserRouter, Outlet } from 'react-router-dom';
+import HeaderAndSideBar from './Components/HeaderAndSideBar';
 import Browse from './Pages/Browse/Browse';
+import Home from './Pages/Home/Home';
+import './App.css';
+
+const App = () => {
+  return (
+    <>
+      <HeaderAndSideBar />
+      <Outlet />
+    </>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -10,17 +21,20 @@ const appRouter = createBrowserRouter([
   },
   {
     path: '/browse',
-    element: <Browse />
+    element: <App />,
+    children: [
+      {
+        path: '/browse',
+        element: <Browse />,
+      },
+      {
+        path: '/browse/:genre',
+        element: <MoviesGenrePage />,
+      }
+    ]
   }
 ]);
 
-const App = () => {
-  return (
-    <RouterProvider router={appRouter} />
-  );
-};
 
 
-
-
-export default App;
+export default appRouter;

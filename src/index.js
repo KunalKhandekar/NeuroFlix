@@ -1,18 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
 import appStore from './utils/Store/appStore';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import appRouter from './App';
+import React from 'react';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
     <Provider store={appStore}>
-    <App />
+    <RouterProvider router={appRouter} />
     </Provider>
   
 );
-
-reportWebVitals();
