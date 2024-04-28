@@ -18,6 +18,8 @@ module.exports = {
 
       'md': {'max': '757px'},
       // => @media (max-width: 767px) { ... }
+
+      // phone... 
       'sm': {'max': '680px'},
       'ssm': {'max': '590px'},
       'xsm': {'max': '450px'},
@@ -26,7 +28,7 @@ module.exports = {
     },
     extend: {
       scale: {
-        '175': '1.75',
+        '175': '1.80',
       }
     }
   },
