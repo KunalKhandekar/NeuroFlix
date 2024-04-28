@@ -23,6 +23,11 @@ module.exports = {
       'xsm': {'max': '450px'},
       'xxsm': {'max': '370px'},
       'xxxsm': {'max': '355px'}
+    },
+    extend: {
+      scale: {
+        '175': '1.75',
+      }
     }
   },
   plugins: [],
