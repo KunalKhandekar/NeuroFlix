@@ -3,6 +3,8 @@ import { POSTER_URL } from '../utils/constants'
 import { Link } from 'react-router-dom'
 
 const ShowCard = ({ poster, title, id }) => {
+    if (!poster) return;
+
     return (
         <Link to={`/browse/info/${id}`}>
             <div className='w-[240px] rounded-xl overflow-hidden mmd:w-[180px] ssm:w-[140px] xxsm:w-[130px] relative md:text-sm xsm:text-xs' >

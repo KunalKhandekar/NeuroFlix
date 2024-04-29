@@ -10,13 +10,11 @@ import { Link } from 'react-router-dom';
 import useTrailer from '../Hooks/Movies/useTrailer';
 
 const TopTrailerContainer = ({ title, desc, id }) => {
-    const navigate = useNavigate();
     const [isMuted, setIsMuted] = useState(true);
     const [isPlaying, setIsPlaying] = useState(true);
 
     const trailerId = useTrailer(id);
-    if (!trailerId) return;
-
+    
     const handleToggleMute = () => {
         setIsMuted(!isMuted);
     };

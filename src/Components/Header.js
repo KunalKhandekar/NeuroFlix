@@ -11,9 +11,9 @@ const Header = ({ show, setShow }) => {
 
     return (
 
-        <div className='max-w-[1600px] m-auto relative'>
+        <div className='max-w-[1600px] m-auto fixed top-0 z-40 w-full bg-gradient-to-b from-black to-[#000000a3]'>
 
-            <div className='flex items-center justify-between px-5 py-3 bg-gradient-to-b from-black z-40 flex-wrap absolute top-0 w-full sm:bg-black sm:static'> 
+            <div className='flex items-center justify-between px-5 py-3 bg-gradient-to-b from-black z-40 flex-wrap absolute top-0 w-full sm:bg-black sm:static'>
                 {/* Menu && Logo */}
                 <div className='flex items-center gap-4'>
                     <RiMenuUnfoldFill className='text-2xl text-white cursor-pointer ssm:text-xl xsm:text-lg' onClick={() => setShow(!show)}/>

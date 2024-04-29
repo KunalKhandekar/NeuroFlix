@@ -6,20 +6,25 @@ const movieSlice = createSlice({
         nowPlayingMovies : null,
         popularMovies : null,
         topRatedMovies : null,
-        upcomingMovies : null
+        nowPlayingTotalPages : 1,
+        popularTotalPages : 1,
+        topRatedTotalPages : 1
     },
     reducers : {
         addNowPlayingMovies : (state, action) => {
-            state.nowPlayingMovies = action.payload;
+            const { movieData, totalPg } = action.payload;
+            state.nowPlayingMovies = movieData;
+            state.nowPlayingTotalPages = totalPg;
         },
         addPopularMovies : (state, action) => {
-            state.popularMovies = action.payload;
+            const { movieData, totalPg } = action.payload;
+            state.popularMovies = movieData;
+            state.popularTotalPages = totalPg;
         },
         addTopRatedMovies : (state, action) => {
-            state.topRatedMovies = action.payload;
-        },
-        addUpcomingMovies : (state, action) => {
-            state.upcomingMovies = action.payload;
+            const { movieData, totalPg } = action.payload;
+            state.topRatedMovies = movieData;
+            state.topRatedTotalPages = totalPg;
         }
     }
 });
