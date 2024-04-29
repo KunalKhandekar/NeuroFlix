@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { API_OPTIONs } from '../../utils/constants';
+import { useEffect, useState } from 'react';
 
 const useTrailer = (id) => {
   const [trailerKey, setTrailerKey] = useState(null);

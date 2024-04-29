@@ -16,9 +16,9 @@ module.exports = {
 
       'slg': {'max': '920px'},
 
+      'mmd': {'max': '810px'},
       'md': {'max': '757px'},
       // => @media (max-width: 767px) { ... }
-
       // phone... 
       'sm': {'max': '680px'},
       'ssm': {'max': '590px'},

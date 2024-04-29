@@ -5,6 +5,7 @@ import HeaderAndSideBar from './Components/HeaderAndSideBar';
 import Browse from './Pages/Browse/Browse';
 import Home from './Pages/Home/Home';
 import './App.css';
+import Info from './Components/Info';
 
 const App = () => {
   return (
@@ -35,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/browse/categories/:categoryNo',
         element: <CategoriesPage />,
+      },
+      {
+        path: '/browse/info/:movieID',
+        element: <Info />,
       }
     ]
   }

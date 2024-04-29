@@ -4,13 +4,16 @@ import { IoVolumeMute } from "react-icons/io5";
 import { IoVolumeHigh } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa6";
 import { FaPause } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
 import useTrailer from '../Hooks/Movies/useTrailer';
 
 const TopTrailerContainer = ({ title, desc, id }) => {
+    const navigate = useNavigate();
     const [isMuted, setIsMuted] = useState(true);
     const [isPlaying, setIsPlaying] = useState(true);
-    
+
     const trailerId = useTrailer(id);
     if (!trailerId) return;
 
@@ -36,9 +39,11 @@ const TopTrailerContainer = ({ title, desc, id }) => {
                     <div className="flex gap-3 mt-4 text-xl lg:text-base slg:text-sm sm:text-xs ssm:text-[9px] ssm:mt-1.5 xsm:text-[6px] xsm:gap-1">
                         <button className="text-black bg-[#ffff] hover:bg-[#b6b6b6] px-6 py-1.5 flex items-center gap-2 rounded-lg font-medium ssm:px-2 ssm:font-semibold ssm:py-1 ssm:gap-1 xsm:py-0" onClick={handleTogglePlay}> {isPlaying ? <><FaPause /> <p>Pause</p></> : <><FaPlay /> <p>Play</p></>}
                         </button>
-                        <button className="text-white bg-[#dfdfdf84] hover:bg-[#d2d2d2ae] px-6 py-1.5 flex items-center gap-2 rounded-lg font-medium ssm:px-2 ssm:font-semibold ssm:py-1 ssm:gap-1 xsm:py-0">
-                            <RiInformation2Line /> More Info
-                        </button>
+                        <Link to={'/browse/info/' + id}>
+                            <div className="text-white bg-[#dfdfdf84] hover:bg-[#d2d2d2ae] px-6 py-1.5 flex items-center gap-2 rounded-lg font-medium ssm:px-2 ssm:font-semibold ssm:py-1 ssm:gap-1 xsm:py-0">
+                                <RiInformation2Line /> More Info
+                            </div>
+                        </Link>
                     </div>
 
                 </div>
@@ -66,9 +71,11 @@ const TopTrailerContainer = ({ title, desc, id }) => {
                 <div className="flex gap-3 mt-4 text-lg font-medium ssm:text-sm xsm:text-xs">
                     <button className="text-black bg-[#ffff] hover:bg-[#b6b6b6] px-6 py-1.5 flex items-center gap-2 rounded-lg xsm:px-3" onClick={handleTogglePlay}> {isPlaying ? <><FaPause /> <p>Pause</p></> : <><FaPlay /> <p>Play</p></>}
                     </button>
-                    <button className="text-white bg-[#dfdfdf84] hover:bg-[#d2d2d2ae] px-6 py-1.5 flex items-center gap-2 rounded-lg xsm:px-3">
-                        <RiInformation2Line /> More Info
-                    </button>
+                    <Link to={'/browse/info/' + id}>
+                            <div className="text-white bg-[#dfdfdf84] hover:bg-[#d2d2d2ae] px-6 py-1.5 flex items-center gap-2 rounded-lg xsm:px-3">
+                                <RiInformation2Line /> More Info
+                            </div>
+                        </Link>
                 </div>
             </div>
         </>
