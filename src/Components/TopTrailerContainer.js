@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { RiInformation2Line } from "react-icons/ri";
 import { IoVolumeMute } from "react-icons/io5";
@@ -7,10 +5,14 @@ import { IoVolumeHigh } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa6";
 import { FaPause } from "react-icons/fa6";
 import ReactPlayer from 'react-player';
+import useTrailer from '../Hooks/Movies/useTrailer';
 
 const TopTrailerContainer = ({ title, desc, id }) => {
     const [isMuted, setIsMuted] = useState(true);
     const [isPlaying, setIsPlaying] = useState(true);
+    
+    const trailerId = useTrailer(id);
+    if (!trailerId) return;
 
     const handleToggleMute = () => {
         setIsMuted(!isMuted);
@@ -45,7 +47,7 @@ const TopTrailerContainer = ({ title, desc, id }) => {
 
                 <ReactPlayer
                     className="w-screen aspect-video absolute top-0 left-0 -z-40 scale-150 sm:scale-175 sm:brightness-125"
-                    url={`https://www.youtube.com/embed/${'6xqNk5Sf5jo'}?controls=0&showinfo=0`}
+                    url={`https://www.youtube.com/embed/${trailerId}?controls=0&showinfo=0`}
                     playing={isPlaying}
                     muted={isMuted}
                     width="100%"
