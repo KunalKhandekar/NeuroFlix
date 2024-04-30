@@ -12,6 +12,13 @@ const GenrePage = () => {
     useMovieGenre(genre, currentPage);
     const genreSlice = useSelector((store) => store.genre);
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     useEffect(() => {
         scrollToTop();
         setCurrentPage(1); // Reset currentPage to 1 whenever genre changes
@@ -34,12 +41,7 @@ const GenrePage = () => {
         }
     };
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    };
+   
 
     return (
         <>
