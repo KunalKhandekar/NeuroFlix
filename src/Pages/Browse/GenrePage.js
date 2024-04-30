@@ -24,6 +24,10 @@ const GenrePage = () => {
         setCurrentPage(1); // Reset currentPage to 1 whenever genre changes
     }, [genre]);
 
+    useEffect(() => {
+        scrollToTop();
+    }, [currentPage]);
+
     if (!genreSlice || !genreSlice.moviesWithGenre) return null;
 
     const { moviesWithGenre, moviesWithGenreTotalPages } = genreSlice;
@@ -31,36 +35,33 @@ const GenrePage = () => {
 
     const goToPreviousPage = () => {
         setCurrentPage(prevPage => Math.max(prevPage - 1, 1));
-        scrollToTop();
     };
 
     const goToNextPage = () => {
         if (currentPage < moviesWithGenreTotalPages) {
             setCurrentPage(prevPage => prevPage + 1);
-            scrollToTop();
         }
     };
 
-   
-
     return (
-        <>
+        <div className='w-screen h-screen bg-black'>
             <TopPosterContainer
+                key={`${firstItem?.title}_${firstItem?.backdrop_path}_${firstItem?.overview}`} // Ensure rerender on change
                 poster={firstItem?.backdrop_path}
                 title={firstItem?.title}
                 desc={firstItem?.overview}
             />
-            <MovieList movies={moviesWithGenre} />
+            <MovieList key={moviesWithGenre.map(movie => movie.id).join('_')} movies={moviesWithGenre} /> {/* Ensure rerender on change */}
             <div className='max-w-[1600px] m-auto flex justify-center items-center gap-3 bg-black text-white pb-16 font-medium text-xl ssm:text-sm'>
                 <button onClick={goToPreviousPage} disabled={currentPage === 1} className='px-5 py-1.5 rounded-lg bg-red-700'>
-                <GrLinkPrevious />
+                    <GrLinkPrevious />
                 </button>
                 <span className='mx-4'>Page {currentPage} of {moviesWithGenreTotalPages}</span>
                 <button onClick={goToNextPage} disabled={currentPage === moviesWithGenreTotalPages} className='px-5 py-1.5 rounded-lg bg-red-700'>
-                <GrLinkNext />
+                    <GrLinkNext />
                 </button>
             </div>
-        </>
+        </div>
     );
 };
 
