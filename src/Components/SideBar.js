@@ -85,7 +85,7 @@ const SideBar = ({ show, setShow }) => {
                 {/* items */}
                 <div>
                     {movieGenre.map((item, index) => (
-                        <GenreItem name={item.name} index={index} key={item.id} show={show} setShow={setShow} use={'movie_genre_'} />
+                        <GenreItem name={item.name} index={index} key={item.id} show={show} setShow={setShow} use={'movie_genre_'} genre_id={item.id} />
                     ))}
                 </div>
             </div>
@@ -99,7 +99,7 @@ const SideBar = ({ show, setShow }) => {
                 {/* Items */}
                 <div>
                     {tvGenre.map((item, index) => (
-                        <GenreItem name={item.name} index={index} key={item.id} show={show} setShow={setShow} use={'tv_genre_'} />
+                        <GenreItem name={item.name} index={index} key={item.id} show={show} setShow={setShow} use={'tv_genre_'} genre_id={item.id}/>
                     ))}
                 </div>
 
