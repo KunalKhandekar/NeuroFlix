@@ -7,7 +7,7 @@ const useNowPlayingMovies = (page) => {
     const dispatch = useDispatch();
 
     const getNowPlayingMovies = async () => {
-        const movie = await fetch(`https://api.themoviedb.org/3/movie/now_playing?page=${page}&region=IN`, API_OPTIONs);
+        const movie = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&region=IN`, API_OPTIONs);
         const movieJSON = await movie.json();
         const movieData = movieJSON?.results;
         const totalPg = movieJSON?.total_pages

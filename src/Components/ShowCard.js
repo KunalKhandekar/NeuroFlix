@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import demoPoster from '../images/showCardPlaceHolder.jpg'
 
 const ShowCard = ({ poster, title, id }) => {
-    const [isImageLoaded, setIsImageLoaded] = useState(false);
-
+    const [isImageLoaded, setIsImageLoaded] = useState(false); 
+    
     useEffect(() => {
         const image = new Image();
         image.src = POSTER_URL + poster;
@@ -13,7 +13,8 @@ const ShowCard = ({ poster, title, id }) => {
             setIsImageLoaded(true);
         };
     }, [poster]);
-
+    
+    if (!poster) return;
     if (!isImageLoaded) {
         return (
             <Link to={`/browse/info/${id}`}>

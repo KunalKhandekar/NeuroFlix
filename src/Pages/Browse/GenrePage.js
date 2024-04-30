@@ -46,10 +46,10 @@ const GenrePage = () => {
     return (
         <div className='w-screen h-screen bg-black'>
             <TopPosterContainer
-                key={`${firstItem?.title}_${firstItem?.backdrop_path}_${firstItem?.overview}`} // Ensure rerender on change
                 poster={firstItem?.backdrop_path}
                 title={firstItem?.title}
                 desc={firstItem?.overview}
+                id={firstItem?.id}
             />
             <MovieList key={moviesWithGenre.map(movie => movie.id).join('_')} movies={moviesWithGenre} /> {/* Ensure rerender on change */}
             <div className='max-w-[1600px] m-auto flex justify-center items-center gap-3 bg-black text-white pb-16 font-medium text-xl ssm:text-sm'>

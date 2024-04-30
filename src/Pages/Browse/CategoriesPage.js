@@ -8,14 +8,12 @@ import TopTrailerContainer from '../../Components/TopTrailerContainer';
 import useNowPlayingMovies from '../../Hooks/Movies/useNowPlayingMovies';
 import usePopularMovies from "../../Hooks/Movies/usePopularMovies";
 import useTopRatedMovies from "../../Hooks/Movies/useTopRatedMovies";
+import TopPosterContainer from '../../Components/TopPosterContainer';
 
 
 const CategoriesPage = () => {
   const { categoryNo } = useParams();
   const movieSlice = useSelector((store) => store.movie);
-
-  // Generate a random category index between 0 and 10
-  const randomCategoryIndex = Math.floor(Math.random() * 11);
 
   // Define separate state variables for each category's page
   const [nowPlayingPage, setNowPlayingPage] = useState(1);
@@ -26,6 +24,13 @@ const CategoriesPage = () => {
   useNowPlayingMovies(nowPlayingPage);
   usePopularMovies(popularPage);
   useTopRatedMovies(topRatedPage);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // Smooth scrolling animation
+    });
+  };
 
   let category;
   let currentPage;
@@ -55,9 +60,15 @@ const CategoriesPage = () => {
       break;
   }
 
+  useEffect(() => {
+    scrollToTop();
+  }, [currentPage]);
+
   if (!category) return null;
 
-  const { original_title, overview, id } = category[randomCategoryIndex] || category[0];
+  const randomCategoryIndex = Math.floor(Math.random() * 10);
+
+  const { original_title, overview, id, backdrop_path } = category[randomCategoryIndex] || category[0];
 
   const goToPreviousPage = () => {
     setPage((prevPage) => Math.max(prevPage - 1, 1));
@@ -71,20 +82,18 @@ const CategoriesPage = () => {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth" // Smooth scrolling animation
-    });
-  };
-
   return (
     <div>
-      <TopTrailerContainer title={original_title} desc={overview} id={id} />
+      <TopPosterContainer
+        poster={backdrop_path}
+        title={original_title}
+        desc={overview}
+        id={id}
+      />
       <MovieList movies={category} />
       <div className='max-w-[1600px] m-auto flex justify-center items-center gap-3 bg-black text-white pb-16 font-medium text-xl ssm:text-sm' >
         <button onClick={goToPreviousPage} disabled={currentPage === 1} className='px-5 py-1.5 rounded-lg bg-red-700'><GrLinkPrevious /></button>
-        <h1>Page {currentPage}</h1>
+        <h1>Page {currentPage} of {totalPages}</h1>
         <button onClick={goToNextPage} disabled={currentPage === totalPages} className='px-5 py-1.5 rounded-lg bg-red-700'><GrLinkNext className='font-semibold' /></button>
       </div>
     </div>
