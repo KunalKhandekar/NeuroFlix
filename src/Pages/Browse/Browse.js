@@ -25,7 +25,7 @@ const Browse = () => {
     fetchBrowse();
   }, []);
 
-  if (browseData.length === 0) return <h1>Loading ......</h1>;
+  if (browseData.length === 0) return <h1 className='w-screen h-screen bg-black'></h1>;
 
   const { original_title, overview, id } = browseData[0];
 

@@ -64,7 +64,7 @@ const CategoriesPage = () => {
     scrollToTop();
   }, [currentPage]);
 
-  if (!category) return null;
+  if (!category) return <div className='w-screen h-screen bg-black'></div>;
 
   const randomCategoryIndex = Math.floor(Math.random() * 10);
 

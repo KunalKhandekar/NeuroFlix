@@ -28,7 +28,7 @@ const GenrePage = () => {
         scrollToTop();
     }, [currentPage]);
 
-    if (!genreSlice || !genreSlice.moviesWithGenre) return null;
+    if (!genreSlice || !genreSlice.moviesWithGenre) return <div className='w-screen h-screen bg-black'></div>;
 
     const { moviesWithGenre, moviesWithGenreTotalPages } = genreSlice;
     const firstItem = moviesWithGenre[0];

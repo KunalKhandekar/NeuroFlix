@@ -16,7 +16,7 @@ const Header = ({ show, setShow }) => {
             <div className='flex items-center justify-between px-5 py-3 bg-gradient-to-b from-black z-40 flex-wrap absolute top-0 w-full sm:bg-black sm:static'>
                 {/* Menu && Logo */}
                 <div className='flex items-center gap-4'>
-                    <RiMenuUnfoldFill className='text-2xl text-white cursor-pointer ssm:text-xl xsm:text-lg' onClick={() => setShow(!show)}/>
+                    <RiMenuUnfoldFill className='text-2xl text-white cursor-pointer ssm:text-2xl' onClick={() => setShow(!show)}/>
                     <img className='w-36 ssm:w-28 xsm:w-24' src={Logo} alt="Logo" />
                 </div>
 
