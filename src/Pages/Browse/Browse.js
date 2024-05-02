@@ -7,17 +7,17 @@ import MovieList from '../../Components/MovieList';
 
 const Browse = () => {
   const [browseData, setBrowseData] = useState([]);
+  const formattedDate = new Date().toISOString().slice(0, 10);
   
   const fetchBrowse = async () => {
-    const movie1 = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&primary_release_year=2024&sort_by=popularity.desc&with_origin_country=IN&with_original_language=hi&page=1', API_OPTIONs);
+    const movie1 = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&release_date.lte=${formattedDate}&with_origin_country=IN&with_original_language=hi&page=1`, API_OPTIONs);
     const movie1JSON = await movie1.json();
     const movie1Data = movie1JSON?.results;
 
-    const movie2 = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&primary_release_year=2024&sort_by=popularity.desc&with_origin_country=IN&with_original_language=hi&page=2', API_OPTIONs);
+    const movie2 = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&release_date.lte=${formattedDate}&with_origin_country=IN&with_original_language=hi&page=2`, API_OPTIONs);
     const movie2JSON = await movie2.json();
     const movie2Data = movie2JSON?.results;
 
-    // Combine the data from both requests
     setBrowseData([...movie1Data, ...movie2Data]);
   };
 

@@ -18,7 +18,7 @@ const VideoGrid = ({ videos }) => {
 
   return (
     <div className='mt-8 rounded-2xl bg-[#2e2e2e91] shadow-lg'>
-      <h1 className='text-2xl sm:text-xl font-semibold text-white px-3 py-3 border-b-2 border-[#2c2c2c] mx-5'>VIDEOS & REVIEWS (Top Results)</h1>
+      <h1 className='text-2xl sm:text-xl font-semibold text-white px-3 py-3 border-b-2 border-[#2c2c2c] mx-5'>VIDEOS</h1>
       <div className="grid grid-cols-3 gap-4 p-4 slg:grid-cols-2 sm:grid-cols-1 ">
         {videos.map((video) => {
           return (

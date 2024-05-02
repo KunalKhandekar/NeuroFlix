@@ -29,8 +29,7 @@ const Info = () => {
     if (movieData) {
       const fetchVideos = async () => {
         try {
-          console.log(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&q=${encodeURIComponent(movieData.credits.cast[0].name + ' movie ' + movieData.title + ' trailer and review')}&type=video&maxResults=12`);
-          const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&q=${encodeURIComponent(movieData.credits.cast[0].name + ' movie ' + movieData.title + ' trailer and review')}&type=video&maxResults=5`);
+          const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&q=${encodeURIComponent(movieData.credits.cast[0].name + ' Movie ' + movieData.title + ' Trailer and Songs')}&type=video&maxResults=5`);
           const data = await response.json();
           setVideos(data.items);
         } catch (error) {

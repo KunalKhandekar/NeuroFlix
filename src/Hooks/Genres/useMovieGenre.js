@@ -6,11 +6,11 @@ import { addMoviesWithGenre } from '../../utils/Store/GenreSlice';
 const useMovieGenre = (genreID, page) => {
 
     const dispatch = useDispatch();
+    const formattedDate = new Date().toISOString().slice(0, 10);
 
     const getMoviesWithGenre = async () => {
-        const movie = await fetch (`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&release_date.lte=2024-04-29&sort_by=popularity.desc&with_origin_country=IN&with_original_language=hi&with_genres=${genreID}&page=${page}`, API_OPTIONs);
+        const movie = await fetch (`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&release_date.lte=${formattedDate}&with_origin_country=IN&with_original_language=hi&with_genres=${genreID}&page=${page}`, API_OPTIONs);
         const movieJSON = await movie.json();
-        console.log(movieJSON);
         const GenreData = movieJSON?.results;
         const totalPg = movieJSON?.total_pages
         dispatch(addMoviesWithGenre({ GenreData, totalPg }));

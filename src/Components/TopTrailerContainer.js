@@ -25,7 +25,7 @@ const TopTrailerContainer = ({ title, desc, id }) => {
 
     return (
         <>
-            <div className='max-w-[1600px] w-screen aspect-video m-auto relative py-20 bg-black px-16 -z-0 overflow-hidden'>
+            <div className='max-w-[1600px] w-screen aspect-video m-auto relative py-20 bg-black px-16 -z-0 overflow-hidden sm:mt-14'>
                 <div className="w-screen aspect-video absolute z-50 top-0 left-0 bg-gradient-to-r from-black px-[5%] pt-[25%] xl:pt-[35%] slg:pt-[30%] sm:pt-[60%]  pb-6 sm:px-0 sm:pb-0 sm:bg-gradient-to-t">
 
                     <div className='max-w-[700px] text-4xl text-white font-bold pb-3 lg:text-3xl slg:text-2xl sm:text-xl sm:max-w-[400px] ssm:text-base ssm:pb-1 xxsm:text-sm'>
