@@ -7,3 +7,5 @@ export const API_OPTIONs = {
 };
 
 export const POSTER_URL = "https://image.tmdb.org/t/p/original";
+
+export const API_KEY = ['AIzaSyBiM4mVtA1F1rE-YWLj9wIbsITVa_s8DV4', 'AIzaSyB2dawIeXCPVMVRMGi9HP4P1K8jWFUFiGE'][Math.floor(Math.random() * 2)];
