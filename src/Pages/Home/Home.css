@@ -154,7 +154,7 @@ nav {
 .signUP_box {
     background-color: #000000be;
     border-radius: 8px;
-    padding: 10px 20px;
+    padding: 15px;
     margin: 20px auto;
 } 
 
@@ -165,12 +165,12 @@ nav {
 .signIN_box {
     margin: auto;
     border-radius: 6px;
-    padding: 20px;
+    padding: 15px;
     background-color: #000000be;
 }
 
 .signIN_box > h1 {
-    font-size: 28px;
+    font-size: 21px;
     text-transform: uppercase;
 }
 
@@ -187,6 +187,10 @@ nav {
 .signIN_box > p {
     font-size: 15px;
     text-align: left;
+}
+
+.signUP_box > h1 {
+    font-size: 21px;
 }
 
 .signUP_box > p {
@@ -354,6 +358,9 @@ input:focus {
 
 .reasons>h2 {
     color: #fff;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 .reason-box {
@@ -371,7 +378,8 @@ input:focus {
     color: #fff;
     background: linear-gradient(149deg, #192247 0%, #210e17 99.08%);
     border-radius: 12px;
-    font-size: 14px;
+    font-size: 22px;
+    font-weight: 600;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -651,7 +659,7 @@ a {
 
     .rbox {
         width: 230px;
-        font-size: 11px;
+        font-size: 17px;
     }
 
 
@@ -673,6 +681,10 @@ a {
 
     .signIN_box {
         width: 100%;
+    }
+
+    .signIN_box h1 {
+        font-size: 20px;
     }
 
     .error_message {
@@ -748,6 +760,10 @@ a {
 
     footer {
         align-items: start;
+    }
+
+    .rbox {
+        font-size: 21px;
     }
 
 }
@@ -835,7 +851,7 @@ a {
 
 
     .rbox {
-        font-size: 10px;
+        font-size: 16px;
         height: 230px;
     }
 
@@ -845,10 +861,6 @@ a {
 
     .register>p {
         font-size: 13px;
-    }
-
-    .form2>button {
-        font-size: 15px;
     }
 
     .main-footer-menu {

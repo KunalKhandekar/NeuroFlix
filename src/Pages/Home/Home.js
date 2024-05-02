@@ -107,13 +107,6 @@ const Home = () => {
                                 <img src={Logo} alt="Netflix" />
                             </div>
                             <div className="lang-signin flex items-center">
-                                <div className="dropdown flex items-center">
-                                    <img src={LangIcon} alt="language" />
-                                    <select name="language">
-                                        <option value="English">English</option>
-                                        <option value="Hindi">Hindi</option>
-                                    </select>
-                                </div>
                                 <button onClick={handleClick}>
                                     {UserLoggedIN ? 'Sign Up' : 'Sign In'}
                                 </button>
@@ -144,7 +137,7 @@ const Home = () => {
 
                             <><div className='signUP_box'>
 
-                                <h1>SIGN UP</h1>
+                                <h1 className="text-xl">SIGN UP</h1>
 
                                 <div className="form">
                                     <input className='inputBox' ref={SignUpEmail} type="email" required="true" placeholder="Email address" />
@@ -167,24 +160,24 @@ const Home = () => {
                 {/* Plans */}
                 <div className="max-w">
                     <div className="plans-container">
-                        <h2>A plan to suit your needs</h2>
+                        <h2 className="capitalize font-semibold">A plan to suit your needs</h2>
                         <div className="plan-box">
                             <div className="pack">
-                                <h2>PREMIUM</h2>
+                                <h2 className="font-bold">PREMIUM</h2>
                                 <p className="context">
                                     A cinematic experience with the best picture and audio quality.
                                 </p>
                                 <p>₹649/month</p>
                             </div>
                             <div className="pack">
-                                <h2>STANDARD</h2>
+                                <h2 className="font-bold">STANDARD</h2>
                                 <p className="context">
                                     All the entertainment you love, in Full HD video quality.
                                 </p>
                                 <p>₹449/month</p>
                             </div>
                             <div className="pack">
-                                <h2>BASIC</h2>
+                                <h2 className="font-bold">BASIC</h2>
                                 <p className="context">
                                     A great way to enjoy all your favourite shows and movies on a
                                     budget.
@@ -192,7 +185,7 @@ const Home = () => {
                                 <p>₹199/month</p>
                             </div>
                             <div className="pack">
-                                <h2>MOBILE</h2>
+                                <h2 className="font-bold">MOBILE</h2>
                                 <p className="context">
                                     A travel-friendly option for your mobile devices.
                                 </p>
@@ -285,14 +278,7 @@ const Home = () => {
                                 <p>Only on Netflix</p>
                             </div>
                         </div>
-                        <div className="dropdown d2">
-                            <img src={LangIcon} alt="language" />
-                            <select name="language">
-                                <option value="English">English</option>
-                                <option value="Hindi">Hindi</option>
-                            </select>
-                        </div>
-                        <p>Netflix India</p>
+                        <p>NeuroFlix India</p>
                     </footer>
                 </div>
             </div>
