@@ -37,7 +37,7 @@ const TopPosterContainer = ({ poster, title, desc, id}) => {
 
     return (
         <Link to={`/browse/info/${id}`} >
-            <div className='max-w-[1600px] m-auto pt-16 px-16 bg-black text-white sm:pt-3 slg:px-8 xsm:px-4 xsm:pt-1.5'>
+            <div className='max-w-[1600px] m-auto pt-16 px-16 bg-black text-white slg:px-8 xsm:px-4'>
             <div className='w-[100%] mx-auto rounded-xl xsm:rounded-lg relative'>
                 <img
                     src={POSTER_URL + poster}
