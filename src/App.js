@@ -6,6 +6,7 @@ import Browse from './Pages/Browse/Browse';
 import Home from './Pages/Home/Home';
 import './App.css';
 import Info from './Components/Info';
+import SuggestionPage from './Components/SuggestionPage';
 
 const App = () => {
   return (
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/browse/info/:movieID',
         element: <Info />,
+      },
+      {
+        path: '/browse/suggestion',
+        element: <SuggestionPage />,
       }
     ]
   }

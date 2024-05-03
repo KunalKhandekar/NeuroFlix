@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const useGenreList = () => {
 
-    const [ movieGenre, setMovieGenre ] = useState(null);
+    const [movieGenre, setMovieGenre] = useState(null);
 
     // Getting GenreList of Movies
     const MovieList = async () => {
@@ -18,7 +18,7 @@ const useGenreList = () => {
 
     if (movieGenre !== null) {
         return {
-            movie : movieGenre
+            movie: movieGenre
         }
     }
 };

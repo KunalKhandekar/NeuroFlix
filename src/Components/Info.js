@@ -46,7 +46,7 @@ const Info = () => {
   const first10Cast = Object.values(movieData.credits.cast).slice(0, 14);
 
   return (
-    <div className='max-w-[1600px] w-screen m-auto bg-black pb-20'>
+    <div className='max-w-[1600px] min-h-screen w-screen m-auto bg-black pb-20'>
       <div className='mx-20 slg:mx-10 xsm:mx-4'>
         <InfoTopContainer movieData={movieData} />
         <CastList first10Cast={first10Cast} />

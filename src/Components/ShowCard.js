@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { POSTER_URL } from '../utils/constants';
 import { Link } from 'react-router-dom';
-import demoPoster from '../images/showCardPlaceHolder.jpg'
+import demoPoster from '../images/showCardPlaceHolder.jpg';
 
 const ShowCard = ({ poster, title, id }) => {
     const [isImageLoaded, setIsImageLoaded] = useState(false); 

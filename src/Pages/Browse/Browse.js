@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { API_OPTIONs } from '../../utils/constants';
-import { useActionData, useSearchParams } from 'react-router-dom';
-import { MdOutlineViewCarousel } from 'react-icons/md';
 import TopTrailerContainer from '../../Components/TopTrailerContainer';
 import MovieList from '../../Components/MovieList';
 
 const Browse = () => {
+
   const [browseData, setBrowseData] = useState([]);
   const formattedDate = new Date().toISOString().slice(0, 10);
-  
+
   const fetchBrowse = async () => {
     const movie1 = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&release_date.lte=${formattedDate}&with_origin_country=IN&with_original_language=hi&page=1`, API_OPTIONs);
     const movie1JSON = await movie1.json();
