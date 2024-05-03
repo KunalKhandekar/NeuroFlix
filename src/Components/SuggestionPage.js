@@ -1,17 +1,18 @@
+import { addMovieData } from '../utils/Store/suggestionSlice';
+import { API_Token, API_OPTIONs } from '../utils/constants';
+import SuggestionContainer from "./SuggestionContainer";
+import ClipLoader from "react-spinners/ClipLoader";
 import { BG_POSTER_URL } from '../utils/constants';
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from "react-toastify";
-import { addMovieData } from '../utils/Store/suggetionSlice';
-import { API_Token, API_OPTIONs } from '../utils/constants';
-import SuggestionContainer from "./SuggestionContainer";
-import ClipLoader from "react-spinners/ClipLoader"; // Import the loading spinner component
 
 const SuggestionPage = () => {
-    const searchBox = useRef(null);
-    const dispatch = useDispatch();
-    const [isLoading, setIsLoading] = useState(false);
+    const searchBox = useRef(null); // Reference for search input
+    const dispatch = useDispatch(); // useDispatch hook to dispatch Redux actions
+    const [isLoading, setIsLoading] = useState(false); // State for loading spinner
 
+    // Function to search movies on TMDB
     const searchMovieTMDB = async (movie) => {
         const data = await fetch(
             "https://api.themoviedb.org/3/search/movie?query=" +
@@ -24,8 +25,9 @@ const SuggestionPage = () => {
         return json.results;
     };
 
+    // Function to fetch movie data from EdenAI API
     const fetchData = async (text) => {
-        setIsLoading(true);
+        setIsLoading(true); // Set loading state to true
 
         const url = "https://api.edenai.run/v2/text/chat";
 
@@ -60,19 +62,21 @@ const SuggestionPage = () => {
             console.error('Error fetching data:', error);
             toast.error('Error fetching data');
         } finally {
-            setIsLoading(false);
+            setIsLoading(false); // Set loading state to false
         }
     };
 
+    // Function to handle search
     const handleSearch = async (e) => {
-        e.preventDefault()
+        e.preventDefault(); // Prevent default form submission behavior
         if (!searchBox.current.value) {
-            toast.error('Empty Input Box !!');
+            toast.error('Empty Input Box !!'); // Display toast message if search input is empty
         } else {
-            fetchData(searchBox.current.value);
+            fetchData(searchBox.current.value); // Fetch data based on search input
         };
     };
 
+    // Render the SuggestionPage component
     return (
         <div className='max-w-[1600px] min-h-screen w-screen m-auto bg-[#00000065] pb-20 relative'>
             <img
@@ -81,6 +85,7 @@ const SuggestionPage = () => {
                 className='w-full h-full object-cover rounded-2xl xsm:rounded-lg fixed top-0 left-0 -z-10'
             />
 
+            {/* Search form */}
             <div className='pt-20 w-[80%] sm:w-[100%] sm:pt-[6.5rem] sm:text-sm'>
                 <form action="" className='grid grid-cols-12 p-2 bg-[#171717d2] mx-10 xsm:mx-2' onSubmit={(e) => handleSearch(e)}>
                     <input type="text" placeholder='What do you want to watch today ?' className='px-2 py-2 col-span-9 focus:outline-none text-black' ref={searchBox} />
@@ -88,6 +93,7 @@ const SuggestionPage = () => {
                 </form>
             </div>
 
+            {/* Conditional rendering based on loading state */}
             {isLoading ? (
                 <div className="mx-5 my-4 bg-[#0000007c] text-center py-5 rounded-lg xsm:mx-2">
                     <ClipLoader color="#ffffff" loading={isLoading} size={80} />

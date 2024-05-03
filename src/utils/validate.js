@@ -1,28 +1,36 @@
 export const ValidationLogin = (email, password) => {
-    const validemail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
-    const validpassword  = /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/.test(password);
+    // Regular expressions for email and password validation
+    const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+    const validPassword = /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/.test(password);
 
-    if (!validemail) return 'Email is not Vaild';
+    // Check email validity
+    if (!validEmail) return 'Email is not valid';
 
-    if (password === '') return 'Password Required';
+    // Check if password is empty
+    if (password === '') return 'Password is required';
 
-    if (!validpassword) return "Password is not valid";
-
+    // Check password validity
+    if (!validPassword) return 'Password is not valid';
 };
 
-export const ValidationSignUp = (username,email, password) => {
-    const validusername = /^[A-Za-z0-9_.]+$/.test(username);
-    const validemail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
-    const validpassword  = /(?=.*?[a-z])(?=.*?[0-9]).{8,}$/.test(password);
+export const ValidationSignUp = (username, email, password) => {
+    // Regular expressions for username, email, and password validation
+    const validUsername = /^[A-Za-z0-9_.]+$/.test(username);
+    const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+    const validPassword = /^(?=.*?[a-z])(?=.*?[0-9]).{8,}$/.test(password);
 
-    if (!validemail) return 'Email is not Vaild';
-    
-    if (username === '') return 'Username is Empty';
-    
-    if (!validusername) return 'Usernames can only use letters, numbers, underscores, and periods.';
+    // Check email validity
+    if (!validEmail) return 'Email is not valid';
 
-    if (password === '') return 'Password Required';
+    // Check if username is empty
+    if (username === '') return 'Username is empty';
 
-    if (!validpassword) return "Password must meet requirements: 8-20 chars, 1 digit, 1 lowercase, no spaces.";
+    // Check username validity
+    if (!validUsername) return 'Usernames can only use letters, numbers, underscores, and periods.';
 
+    // Check if password is empty
+    if (password === '') return 'Password is required';
+
+    // Check password validity
+    if (!validPassword) return 'Password must meet requirements: 8-20 characters, at least 1 digit, 1 lowercase letter, no spaces.';
 };

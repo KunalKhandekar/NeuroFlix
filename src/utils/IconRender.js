@@ -5,10 +5,10 @@ import { GiHighPunch } from "react-icons/gi"; //Action
 import { GiDuffelBag } from "react-icons/gi"; //Adventure
 import { GrCubes } from "react-icons/gr"; //Animation
 import { MdTheaterComedy } from "react-icons/md"; //Comedy
-import { FaGun } from "react-icons/fa6"; //crime
+import { FaGun } from "react-icons/fa6"; //Crime
 import { MdOutlineMissedVideoCall } from "react-icons/md"; //Documentary
 import { GiDramaMasks } from "react-icons/gi"; //Drama
-import { MdOutlineFamilyRestroom } from "react-icons/md"; //family
+import { MdOutlineFamilyRestroom } from "react-icons/md"; //Family
 import { FaFantasyFlightGames } from "react-icons/fa6"; //Fantasy
 import { MdHistoryEdu } from "react-icons/md"; //History
 import { GiGhost } from "react-icons/gi"; //Horror
@@ -17,7 +17,7 @@ import { PiDetectiveFill } from "react-icons/pi"; //Mystery
 import { GiLovers } from "react-icons/gi"; //Romance
 import { IoRocketOutline } from "react-icons/io5"; //Science Fiction
 import { PiTelevisionSimple } from "react-icons/pi"; //Tv Movies
-import { SiDarkreader } from "react-icons/si"; //thriller
+import { SiDarkreader } from "react-icons/si"; //Thriller
 import { GiCrossedSwords } from "react-icons/gi"; //War
 import { GiWesternHat } from "react-icons/gi"; //Western
 
@@ -44,9 +44,10 @@ const genreIconMap = {
   37: GiWesternHat // Western
 };
 
+// Define the IconRenderer component
 const IconRenderer = ({ icon }) => {
-  const IconComponent = genreIconMap[icon];
-  return IconComponent ? <IconComponent className="text-xl ssm:text-lg" /> : null;
+  const IconComponent = genreIconMap[icon]; // Get the corresponding icon component based on the provided genre ID
+  return IconComponent ? <IconComponent className="text-xl ssm:text-lg" /> : null; // Render the icon component if it exists
 };
 
-export default IconRenderer;
+export default IconRenderer; // Export the IconRenderer component

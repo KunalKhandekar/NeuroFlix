@@ -1,17 +1,16 @@
 import useGenreList from "../Hooks/Movies/useGenreList";
 import { IoLogOutOutline } from "react-icons/io5";
 import { RiMenuFoldFill } from "react-icons/ri";
+import { FaPlayCircle } from 'react-icons/fa';
+import { useParams } from "react-router-dom";
+import { FaTrophy } from 'react-icons/fa';
 import { auth } from "../utils/Firebase";
 import { signOut } from "firebase/auth";
+import { FaFilm } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 import Logo from '../images/Logo.png';
 import GenreItem from "./GenreItem";
-import { Link } from "react-router-dom";
 import React from 'react';
-import { useParams } from "react-router-dom";
-import { FaPlayCircle } from 'react-icons/fa';
-import { FaFilm } from 'react-icons/fa';
-import { FaTrophy } from 'react-icons/fa';
-import { FaBinoculars } from 'react-icons/fa';
 
 const SideBar = ({ show, setShow }) => {
 
@@ -23,7 +22,6 @@ const SideBar = ({ show, setShow }) => {
 
     // Separating Data
     const movieGenre = genres?.movie;
-    const tvGenre = genres?.tv;
 
     // Handling Sign Out
     const handleSignOut = () => {

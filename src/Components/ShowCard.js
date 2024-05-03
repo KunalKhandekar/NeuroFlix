@@ -1,20 +1,26 @@
+import demoPoster from '../images/showCardPlaceHolder.jpg';
 import React, { useState, useEffect } from 'react';
 import { POSTER_URL } from '../utils/constants';
 import { Link } from 'react-router-dom';
-import demoPoster from '../images/showCardPlaceHolder.jpg';
 
 const ShowCard = ({ poster, title, id }) => {
+    // State to track whether the image is loaded or not
     const [isImageLoaded, setIsImageLoaded] = useState(false); 
     
     useEffect(() => {
+        // Creating a new Image object to preload the poster image
         const image = new Image();
         image.src = POSTER_URL + poster;
+        // Set isImageLoaded to true when the image is loaded
         image.onload = () => {
             setIsImageLoaded(true);
         };
     }, [poster]);
     
-    if (!poster) return;
+    // If poster is not available, return null
+    if (!poster) return null;
+
+    // If the image is not loaded yet, display a placeholder
     if (!isImageLoaded) {
         return (
             <Link to={`/browse/info/${id}`}>
@@ -26,8 +32,7 @@ const ShowCard = ({ poster, title, id }) => {
         );
     }
 
-    if (!poster) return null;
-
+    // Render the ShowCard with the actual poster image
     return (
         <Link to={`/browse/info/${id}`}>
             <div className='w-[240px] rounded-xl overflow-hidden mmd:w-[180px] ssm:w-[140px] xxsm:w-[130px] relative md:text-sm xsm:text-xs' >

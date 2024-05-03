@@ -1,12 +1,11 @@
-import GenrePage from './Pages/Browse/GenrePage';
-import CategoriesPage from './Pages/Browse/CategoriesPage';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import HeaderAndSideBar from './Components/HeaderAndSideBar';
+import CategoriesPage from './Pages/Browse/CategoriesPage';
+import SuggestionPage from './Components/SuggestionPage';
+import GenrePage from './Pages/Browse/GenrePage';
 import Browse from './Pages/Browse/Browse';
 import Home from './Pages/Home/Home';
-import './App.css';
 import Info from './Components/Info';
-import SuggestionPage from './Components/SuggestionPage';
 
 const App = () => {
   return (

@@ -1,20 +1,23 @@
+import FullScreenVideo from './FullScreenVideo';
 import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
-import FullScreenVideo from './FullScreenVideo'; // Import the FullScreenVideo component
 
 const VideoGrid = ({ videos }) => {
   const [fullScreenUrl, setFullScreenUrl] = useState(null);
 
+  // Function to open full screen video
   const openFullScreen = (url) => {
     setFullScreenUrl(url);
   };
 
+  // Function to close full screen video
   const closeFullScreen = () => {
     setFullScreenUrl(null);
   };
 
+  // Return null if videos array is empty or null
   if (!videos) return null;
-  if (videos.length === 0) return;
+  if (videos.length === 0) return null;
 
   return (
     <div className='mt-8 rounded-2xl bg-[#2e2e2e91] shadow-lg'>
@@ -23,7 +26,9 @@ const VideoGrid = ({ videos }) => {
         {videos.map((video) => {
           return (
             <div key={video.id.videoId} className="relative w-full aspect-video" onClick={() => openFullScreen(`https://www.youtube.com/watch?v=${video.id.videoId}`)}>
+                {/* Overlay to cover the video */}
                 <div className='w-full h-full absolute top-0 left-0 z-10 bg-gradient-to-t from-black cursor-pointer'></div>
+              {/* ReactPlayer component for each video */}
               <ReactPlayer
                 className='rounded-xl'
                 url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
@@ -36,7 +41,8 @@ const VideoGrid = ({ videos }) => {
           );
         })}
       </div>
-      {fullScreenUrl && <FullScreenVideo url={fullScreenUrl} onClose={closeFullScreen} />} {/* Render FullScreenVideo component if fullScreenUrl is not null */}
+      {/* Render FullScreenVideo component if fullScreenUrl is not null */}
+      {fullScreenUrl && <FullScreenVideo url={fullScreenUrl} onClose={closeFullScreen} />}
     </div>
   );
 };

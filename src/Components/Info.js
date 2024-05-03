@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import InfoTopContainer from './InfoTopContainer';
 import { API_OPTIONs } from '../utils/constants';
-import CastList from './CastList';
-import VideoGrid from './videoGrid';
 import { API_KEY } from '../utils/constants';
+import { useParams } from 'react-router-dom';
+import VideoGrid from './videoGrid';
+import CastList from './CastList';
 
 const Info = () => {
   const { movieID } = useParams();
   const [movieData, setMovieData] = useState(null);
   const [videos, setVideos] = useState([]);
 
+  // Fetch movie data based on movieID
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
@@ -25,6 +26,7 @@ const Info = () => {
     fetchMovieData();
   }, [movieID]);
 
+  // Fetch videos related to the movie
   useEffect(() => {
     if (movieData) {
       const fetchVideos = async () => {
@@ -41,15 +43,20 @@ const Info = () => {
     }
   }, [movieData]);
 
+  // Render loading message if movie data is not yet loaded
   if (!movieData) return <h1 className='w-screen h-screen flex justify-center items-center text-2xl bg-black text-white'>Loading....</h1>;
 
+  // Slice first 10 cast members from the cast list
   const first10Cast = Object.values(movieData.credits.cast).slice(0, 14);
 
   return (
     <div className='max-w-[1600px] min-h-screen w-screen m-auto bg-black pb-20'>
       <div className='mx-20 slg:mx-10 xsm:mx-4'>
+        {/* Render InfoTopContainer with movieData */}
         <InfoTopContainer movieData={movieData} />
+        {/* Render CastList with first 10 cast members */}
         <CastList first10Cast={first10Cast} />
+        {/* Render VideoGrid with videos related to the movie */}
         <VideoGrid videos={videos} />
       </div>
     </div>
