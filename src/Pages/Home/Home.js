@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { ValidationLogin, ValidationSignUp } from '../../utils/validate';
 import useAuthentication from "../../utils/useAuthentication";
 import { addUser } from '../../utils/Store/userSlice';
-import LangIcon from '../../images/lang-icon.svg'
+import { toast } from "react-toastify";
 import svg1 from '../../images/svg-image-10.png';
 import svg2 from '../../images/svg-image-11.png';
 import svg3 from '../../images/svg-image-12.png';
@@ -52,10 +52,12 @@ const Home = () => {
         if (message) return;
 
         signInWithEmailAndPassword(auth, Loginemail.current.value, Loginpassword.current.value)
-            .then((userCredential) => {
+        .then((userCredential) => {
+                toast.success("Login Successful");
                 const user = userCredential.user;
                 const { uid, displayName, email, photoURL } = user;
                 dispatch(addUser({ uid, displayName, email, photoURL }));
+                
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -73,9 +75,9 @@ const Home = () => {
         setSignUpErrorMessage(message);
 
         if (message) return;
-
         createUserWithEmailAndPassword(auth, SignUpEmail.current.value, SignUpPassword.current.value)
-            .then((userCredential) => {
+        .then((userCredential) => {
+                toast.success("Sign Up Successful");
                 const user = userCredential.user;
                 updateProfile(user, {
                     displayName: userName.current.value, photoURL: avatar
@@ -83,6 +85,7 @@ const Home = () => {
                     // Profile updated!
                     const { uid, displayName, email, photoURL } = auth.currentUser;
                     dispatch(addUser({ uid, displayName, email, photoURL }));
+
                 }).catch((error) => {
                     // An error occurred
                     // ...
@@ -98,7 +101,6 @@ const Home = () => {
     // Rendering the Component
     return (
         <>
-
             <div className="bg-vignity">
                 <div className="max-w">
                     <header>
