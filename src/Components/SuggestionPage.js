@@ -31,13 +31,12 @@ const SuggestionPage = () => {
 
         const url = "https://api.edenai.run/v2/text/chat";
 
-        const query =
-            "Act as a Movie Recommendation system and suggest some movies for the query : " +
-            text +
-            ". If any movie name given in query then extract it and include it in results. only give me names of 10 movies, comma separated array like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya, ....";
+        const query = "Act as a Movie Recommendation system and suggest some movies for the query : " +
+        text +
+        ". If any movie name given in query then extract it and include it in results. only give me names of 10 movies, comma separated array like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya, ....";
 
         const data = {
-            providers: "cohere",
+            providers: "openai",
             text: query,
             chatbot_global_action: "Act as a Movie Recommendation system",
             max_tokens: 150
@@ -54,8 +53,8 @@ const SuggestionPage = () => {
             });
 
             const responseData = await response.json();
-            console.log(responseData.cohere.generated_text);
-            const arrayOfMovies = responseData.cohere.generated_text.split(',');
+            console.log(responseData.openai.generated_text);
+            const arrayOfMovies = responseData.openai.generated_text.split(',');
             const allPromise = arrayOfMovies.map(movie => searchMovieTMDB(movie));
             const searchResults = await Promise.all(allPromise);
             dispatch(addMovieData({ movieNames: arrayOfMovies, movieData: searchResults }));
