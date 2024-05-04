@@ -25,7 +25,6 @@ This project is a React-based web application designed to provide users with mov
 ### 3. Genre-based Browsing
 
 ![Genre-based Browsing](https://i.ibb.co/rpdXqv0/Screenshot2024-05-0422344-1.jpg)
-![Genre-based Browsing](https://i.ibb.co/c2yhb4R/Screenshot2024-05-0422351.jpg)
 - Allows users to browse movies based on specific genres.
 - Fetches movie data from TMDb API filtered by genre and displays them in a paginated format.
 - Includes navigation buttons for users to navigate between pages within each genre category.
