@@ -1,3 +1,4 @@
+
 ![NeuroFlix Logo](https://neuroflix.vercel.app/static/media/Logo.6f12fc7545e36058e8cd.png)
 
 ## Introduction
@@ -7,27 +8,38 @@ This project is a React-based web application designed to provide users with mov
 ## Features
 
 ### 1. Movie Suggestions
+
+![Movie Suggestions](https://i.ibb.co/c6FJg3c/Screenshot-2024-05-04-223350.png)
 - Allows users to search for movie suggestions based on specific queries.
 - Utilizes the OpenAI API to generate movie suggestions based on user queries.
 - Fetches movie data from The Movie Database (TMDb) API to provide detailed information about suggested movies.
 - Displays a list of movie suggestions with relevant details such as title, release date, and poster.
 
 ### 2. Browsing Categories
+
+![Browsing Categories](https://i.ibb.co/HCXB0w2/Screenshot-2024-05-04-223414.png)
 - Offers users the ability to browse movies based on different categories such as Now Playing, Popular, and Top Rated.
 - Fetches movie data from TMDb API for each category and displays them in a paginated format.
 - Includes navigation buttons for users to navigate between pages within each category.
 
 ### 3. Genre-based Browsing
+
+![Genre-based Browsing](https://i.ibb.co/0m7fnS4/Screenshot-2024-05-04-223442.png) ![Genre-based Browsing](https://i.ibb.co/c2jS2C8/Screenshot-2024-05-04-223515.png)
 - Allows users to browse movies based on specific genres.
 - Fetches movie data from TMDb API filtered by genre and displays them in a paginated format.
 - Includes navigation buttons for users to navigate between pages within each genre category.
 
 ### 4. User Authentication
+
+![User Authentication](https://i.ibb.co/j4Cg4Q5/Screenshot-2024-05-04-223211.png)
 - Implements user authentication using Firebase Authentication.
 - Allows users to sign in with their email and password or via other authentication providers supported by Firebase.
 - Stores user authentication state using Redux for easy access across components.
 
 ### 5. Responsive Design
+
+![Responsive Design](https://i.ibb.co/PzzVLgQ/photo-5-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/R46X0BD/photo-1-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/JmpCLVW/photo-2-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/0M3PDLX/photo-3-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/3SJnvMw/photo-4-2024-05-04-23-01-47.jpg)
+
 - Ensures that the web application is responsive and accessible across different devices and screen sizes.
 - Utilizes responsive design techniques such as media queries and flexbox/grid layouts to adapt the UI based on the viewport size.
 
