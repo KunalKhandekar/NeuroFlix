@@ -24,7 +24,8 @@ This project is a React-based web application designed to provide users with mov
 
 ### 3. Genre-based Browsing
 
-![Genre-based Browsing](https://i.ibb.co/0m7fnS4/Screenshot-2024-05-04-223442.png) ![Genre-based Browsing](https://i.ibb.co/c2jS2C8/Screenshot-2024-05-04-223515.png)
+![Genre-based Browsing](https://i.ibb.co/0m7fnS4/Screenshot-2024-05-04-223442.png)
+![Genre-based Browsing](https://i.ibb.co/c2jS2C8/Screenshot-2024-05-04-223515.png)
 - Allows users to browse movies based on specific genres.
 - Fetches movie data from TMDb API filtered by genre and displays them in a paginated format.
 - Includes navigation buttons for users to navigate between pages within each genre category.
@@ -38,7 +39,7 @@ This project is a React-based web application designed to provide users with mov
 
 ### 5. Responsive Design
 
-![Responsive Design](https://i.ibb.co/PzzVLgQ/photo-5-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/R46X0BD/photo-1-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/JmpCLVW/photo-2-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/0M3PDLX/photo-3-2024-05-04-23-01-47.jpg)![Responsive Design](https://i.ibb.co/3SJnvMw/photo-4-2024-05-04-23-01-47.jpg)
+![Responsive Design](https://i.ibb.co/C7vSMpz/Be-Funky-collage.png)
 
 - Ensures that the web application is responsive and accessible across different devices and screen sizes.
 - Utilizes responsive design techniques such as media queries and flexbox/grid layouts to adapt the UI based on the viewport size.
