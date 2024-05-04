@@ -31,7 +31,7 @@ This project is a React-based web application designed to provide users with mov
 
 ### 4. User Authentication
 
-![User Authentication](https://i.ibb.co/fnMWMCF/Screenshot-2024-05-04-232423.png)
+![User Authentication](https://i.ibb.co/KX9njQP/Screenshot2024-05-0423242.jpg)
 - Implements user authentication using Firebase Authentication.
 - Allows users to sign in with their email and password or via other authentication providers supported by Firebase.
 - Stores user authentication state using Redux for easy access across components.
