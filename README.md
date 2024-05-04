@@ -1,5 +1,3 @@
-# Project README
-
 ![NeuroFlix Logo](https://neuroflix.vercel.app/static/media/Logo.6f12fc7545e36058e8cd.png)
 
 ## Introduction
