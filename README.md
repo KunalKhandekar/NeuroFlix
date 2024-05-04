@@ -102,5 +102,3 @@ To run the project locally, follow these steps:
 - Icons used in the project are sourced from [React Icons](https://react-icons.github.io/react-icons/).
 
 ---
-
-Feel free to customize and expand upon this README as needed for your project! If you have any further questions or need assistance with any aspect of the project, don't hesitate to ask.
