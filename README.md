@@ -17,7 +17,7 @@ This project is a React-based web application designed to provide users with mov
 
 ### 2. Browsing Categories
 
-![Browsing Categories](https://i.ibb.co/HCXB0w2/Screenshot-2024-05-04-223414.png)
+![Browsing Categories](https://i.ibb.co/N79k4cB/Screenshot2024-05-0422341.jpg)
 - Offers users the ability to browse movies based on different categories such as Now Playing, Popular, and Top Rated.
 - Fetches movie data from TMDb API for each category and displays them in a paginated format.
 - Includes navigation buttons for users to navigate between pages within each category.
